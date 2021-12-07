@@ -1,0 +1,54 @@
+﻿@page
+@model ReviewlyApp.Pages.ReviwlyPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Films[0].FilmTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Films[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Films[0].Summary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Films[0].Rating)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Films) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilmTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.FilmId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.FilmId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.FilmId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
