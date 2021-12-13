@@ -14,6 +14,23 @@ namespace ReviewlyApp.Pages.ReviwlyPages
     {
         private readonly ReviewlyApp.Data.Context.ReviewlyContext _context;
 
+        public List<Genre> Genres { get; } = new List<Genre>
+        {
+            new Genre()
+            {
+                GenreId = 1,
+                GenreName = "Action"
+            },
+
+            new Genre()
+            {
+                GenreId = 2,
+                GenreName = "Comedy"
+            }
+        };
+
+        public List<SelectListItem> Genre { get; set; }  
+
         public CreateModel(ReviewlyApp.Data.Context.ReviewlyContext context)
         {
             _context = context;
@@ -21,6 +38,12 @@ namespace ReviewlyApp.Pages.ReviwlyPages
 
         public IActionResult OnGet()
         {
+            Genre = Genres.Select(n =>
+            new SelectListItem
+            {
+                Value = n.GenreId.ToString(),
+                Text = n.GenreName
+            }).ToList();
             return Page();
         }
 

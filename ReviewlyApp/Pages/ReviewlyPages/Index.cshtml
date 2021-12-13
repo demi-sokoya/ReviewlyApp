@@ -17,6 +17,9 @@
                 @Html.DisplayNameFor(model => model.Films[0].FilmTitle)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Films[0].Genres)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Films[0].Year)
             </th>
             <th>
@@ -33,6 +36,10 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FilmTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genres)
+                @*@Html.DisplayFor(modelItem => string.Join(",", item.Genres))*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Year)
