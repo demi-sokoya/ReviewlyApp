@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ReviewlyApp.Data;
 using ReviewlyApp.Data.Context;
 
-namespace ReviewlyApp.Pages.ReviwlyPages
+namespace ReviewlyApp.Pages.ReviewPages
 {
     public class IndexModel : PageModel
     {
@@ -19,11 +19,11 @@ namespace ReviewlyApp.Pages.ReviwlyPages
             _context = context;
         }
 
-        public IList<Films> Films { get;set; }
+        public IList<Reviews> Reviews { get;set; }
 
         public async Task OnGetAsync()
         {
-            Films = await _context.Films.Include(p=> p.Genres).ToListAsync();
+            Reviews = await _context.Reviews.ToListAsync();
         }
     }
 }

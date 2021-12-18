@@ -13,7 +13,7 @@ namespace ReviewlyApp.Data
         public int GenreId { get; set; }
         public string GenreName { get; set; }
 
-        public Films Films { get; set; }
+        public ICollection<Films> Films  { get; set; }
 
     }
 }

@@ -13,6 +13,7 @@
 <table class="table">
     <thead>
         <tr>
+            
             <th>
                 @Html.DisplayNameFor(model => model.Films[0].FilmTitle)
             </th>
@@ -33,13 +34,16 @@
     </thead>
     <tbody>
 @foreach (var item in Model.Films) {
-        <tr>
+        <tr id=@item.FilmId>
+            
+            
             <td>
                 @Html.DisplayFor(modelItem => item.FilmTitle)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Genres)
                 @*@Html.DisplayFor(modelItem => string.Join(",", item.Genres))*@
+                <span>@string.Join(",", item.Genres)</span>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Year)
